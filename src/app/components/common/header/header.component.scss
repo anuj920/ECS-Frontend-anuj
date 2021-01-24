@@ -1,0 +1,104 @@
+.navbar
+{
+  margin-left: 295px;
+  margin-top: 15px;
+  margin-right: 15px;
+  transition: 0.5s;
+  border-radius: 10px;
+  background: #fff !important;
+}
+.h-95
+{
+  height: 95px;
+}
+.navbar.active
+{
+  margin-left: 15px;
+}
+@media (max-width: 992px)
+{
+  .navbar
+  {
+    margin-left: 15px;
+  }
+  .navbar.active
+  {
+    margin-left: 15px;
+  }
+  .web-view
+  {
+    display: none;
+  }
+}
+.bg-my
+{
+  background: #f2f2f2 !important;
+}
+.version
+{
+  display: block;
+}
+.version span
+{
+  padding: 5px 20px;
+  border-radius: 5px;
+}
+.nav-shadow-none
+{
+  box-shadow: none;
+}
+.navbar
+{
+  min-height:65px !important;
+  z-index: 10 !important;
+}
+.tog-btn
+{
+  display: block;
+  background: white none repeat scroll 0% 0%;
+  border-radius: 50%;
+  padding: 0px; width: 40px;
+  height: 40px;
+  box-shadow: rgb(204, 204, 204) 0px 0px 10px -2px;
+}
+.tog-btn-i
+{
+  padding: 13px 0px !important;
+}
+.notification{
+  position: relative;
+}
+.number_count{
+  position: absolute;
+  top: 0%;
+  border: white 1px solid;
+  border-radius: 50% !important;
+  padding: 2px 7.5px !important;
+  color: white;
+  background: #ff6161;
+  font-weight: 700;
+}
+
+.text-info{
+  cursor: pointer;
+}
+
+@keyframes blinker {
+  50% { opacity: 0 }
+}
+
+@-webkit-keyframes blinker{
+  50% { opacity: 0 }
+}
+
+@media screen and (max-width: 996px) {
+
+  #navbar
+  {
+    display: none;
+  }
+  #mob_Bar
+  {
+    display:block;
+  }
+}

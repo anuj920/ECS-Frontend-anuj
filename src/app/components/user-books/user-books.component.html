@@ -1,0 +1,67 @@
+<div class="container-fluid">
+    <div class="row content-header">
+      <div class="col-md-6">
+        <h6 class="text-uppercase">Book Details</h6>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="inputBox">
+        <input type="text" class="form-control m-f-c" (keyup)="applyFilter($event)" name="search">
+        <label class="m-lab">Search</label>
+      </div>
+    </div>
+  </div>
+  <div class="web-view" id="pdfsection">
+
+    <div class="innerContent shade">
+
+      <div class="table-responsive">
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+              <tr>
+                  <th style="width: 65px;" class="font-weight-bold">S No.</th>
+                  <th class="font-weight-bold">Title</th>
+                  <th class="font-weight-bold">Author</th>
+                  <th class="font-weight-bold">ISBN</th>
+                  <th class="font-weight-bold">Avg. Rating</th>
+                  <th class="font-weight-bold">Quantity</th>
+                  <th class="font-weight-bold">Price (₹)</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="user_books?.length">
+                <tr *ngFor="let item of user_books |paginate: { itemsPerPage: 20, currentPage: p } ; let i=index; trackBy:identifyBybookID">
+                <td>{{ ((p-1)*20) +i+1}} </td>
+                <td>{{ item.title }}</td>
+                <td>{{item?.authors }}</td>
+                <td> {{item?.isbn}}</td>
+                <td><ngb-rating [max]="5" [(rate)]="item.average_rating" [starTemplate]="t" [readonly]="true"></ngb-rating></td>
+                <td>{{item?.qty }}</td>
+                <td>{{item?.price }}</td>
+              </tr>
+            </tbody>
+
+            <tbody *ngIf="user_books?.length == 0">
+              <tr>
+                <td colspan="7" class="noDataFound">
+                  <h1 class="text-center text-muted"><i class="far fa-frown"></i></h1>
+                  <h5 class="text-center text-muted">No Data Found</h5>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+      </div>
+      <div *ngIf="user_books?.length" style="text-align: right;">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+  <br>
+
+
+  <ng-template #t let-fill="fill">
+    <span class="star" [class.full]="fill === 100">
+      <span class="half" [style.width.%]="fill">&#9733;</span>&#9733;
+    </span>
+  </ng-template>

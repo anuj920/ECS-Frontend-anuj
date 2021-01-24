@@ -1,0 +1,76 @@
+<div class="container-fluid">
+  <div class="row content-header">
+    <div class="col-md-6">
+      <h6 class="text-uppercase">Checkout</h6>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="web-view">
+
+  <div class="innerContent shade">
+
+    <div class="row" *ngIf="!checkout_done">
+
+      <div class="col-6">
+        <div class="innerContent shade">
+
+          <div class="row">
+            <div class="col-6">
+              <div class="inputBox">
+                <input type="text" class="form-control m-f-c" [maxLength]="6" #code_value (keyup)="checkCode(code_value.value)" name="code">
+                <label class="m-lab">Enter Code</label>
+              </div>
+            </div>
+            <div class="col-6">
+                <div class="inputBox readonly">
+                    <input type="text" class="form-control m-f-c" name="ran-code" [value]="random_num" readonly>
+                    <label class="m-lab"></label>
+                </div>
+            </div>
+          </div>
+
+          <span style="font-size: 14px;">Please Enter the above code for checkout.</span>
+          <br>
+
+          <div class="col-md-6">
+            <button type="button" (click)="checkout()" [disabled]="(!check_code || total_qty==0)" class="my-btn-success">Checkout</button>
+          </div>
+        </div>
+
+      </div>
+      <div class="col-6">
+        <div class="innerContent shade">
+            <div class="checkout-head">
+                <span>Checkout Summary</span>
+            </div>
+            <br>
+            <div class="checkout-content">
+                <div class="items-count">
+                    <span><i class="fas fa-box-open"></i>&nbsp; Total Books: {{total_qty}}</span>
+                </div>
+                <br>
+                <div class="items-price">
+                    <span><i class="far fa-money-bill-alt">&nbsp; Total Price (₹): {{total_price | number:'1.2-2'}}</i></span>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row" *ngIf="checkout_done">
+        <div class="col-12">
+            <div  class="checkout-sucess text-center">
+                <h1 class="text-center"><i class="fas fa-check-circle"></i></h1>
+                <h5 class="text-center">Checkout Done</h5>
+                <span style="color: black; font-size: 14px;text-align: center;">Redirecting to your books in {{redirect_time}} seconds ...</span>
+            </div>
+        </div>
+    </div>
+
+  </div>
+</div>
+<br>

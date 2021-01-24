@@ -1,0 +1,31 @@
+.code-enter{
+    background-color: #dee2e6;
+    padding: 10px 25px;
+}
+
+.readonly input{
+    background-color: #dee2e6 !important;
+}
+
+.readonly input:focus{
+    border: none !important;
+}
+
+.checkout-head{
+    font-size: 20px;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+}
+
+.checkout-content{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+.checkout-sucess{
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 50px 50px;
+    color: #0eb8ce;
+}

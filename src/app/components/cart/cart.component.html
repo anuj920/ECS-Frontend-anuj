@@ -1,0 +1,59 @@
+<div class="container-fluid">
+    <div class="row content-header">
+      <div class="col-md-6">
+        <h6 class="text-uppercase">Cart</h6>
+      </div>
+
+      <div class="col-md-6">
+        <button type="button" routerLink='/checkout' [disabled]="cart_list?.length == 0" class="float-right my-btn-success">Checkout</button>
+      </div>
+    </div>
+  </div>
+  <div class="web-view" id="pdfsection">
+
+    <div class="innerContent shade">
+
+      <div class="table-responsive">
+        <table id="example" class="table table-striped table-bordered" style="width:100%">
+            <thead>
+              <tr>
+                  <th style="width: 65px;" class="font-weight-bold">S No.</th>
+                  <th class="font-weight-bold">Title</th>
+                  <th class="font-weight-bold">Author</th>
+                  <th class="font-weight-bold">Quantity</th>
+                  <th class="font-weight-bold">Price (₹)</th>
+                  <th class="font-weight-bold">Action</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="cart_list?.length">
+              <tr *ngFor="let item of cart_list | paginate: { itemsPerPage: 20, currentPage: p } ; let i=index;">
+                <td>{{ ((p-1)*20)+i+1}} </td>
+                <td>{{ item.title }}</td>
+                <td>{{item?.authors }}</td>
+                <td> {{item?.qty}}</td>
+                <td>{{ getPrice(item) | number:'1.2-2'}}</td>
+                <td> <i class="fas fa-plus-circle" title="Add Quantity" (click)="addToCart(item, i)"></i>
+                    &nbsp;  <i class="fas fa-minus-circle" title="Remove Quantity" (click)="removeFromCart(item,i)"></i>
+                </td>
+              </tr>
+              <tr>
+                  <td colspan="4"> Total Price</td>
+                  <td colspan="2">{{total_price | number:'1.2-2'}}</td>
+              </tr>
+            </tbody>
+            <tbody *ngIf="cart_list?.length == 0">
+              <tr>
+                <td colspan="6" class="noDataFound">
+                  <h1 class="text-center text-muted"><i class="far fa-frown"></i></h1>
+                  <h5 class="text-center text-muted">No Data Found</h5>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+      </div>
+      <div *ngIf="cart_list?.length" style="text-align: right;">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
+    </div>
+  </div>
+  <br>
