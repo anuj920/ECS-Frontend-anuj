@@ -1,0 +1,10 @@
+This Project Based on Angular CLI 11.1.1
+
+First Install Angular Cli 11.1.1, Node.js, npm in system as global. 
+
+
+1) Download/clone project git directory.
+2) open cmd and navigate to project folder where package.json file exist.
+3) run "npm install" command to install node_modules
+4) once installation done run "ng serve" or "npm start" command.
+5) open browser and type http://localhost:4200.
