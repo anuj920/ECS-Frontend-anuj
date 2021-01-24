@@ -13,7 +13,7 @@
       </div>
     </div>
   </div>
-  <div class="web-view" id="pdfsection">
+  <div class="web-view">
 
     <div class="innerContent shade">
 
@@ -38,7 +38,7 @@
                 <td> {{item?.isbn}}</td>
                 <td><ngb-rating [max]="5" [(rate)]="item.average_rating" [starTemplate]="t" [readonly]="true"></ngb-rating></td>
                 <td>{{item?.price }}</td>
-                <td> <i class="fas fa-plus-circle" title="Add to Cart" (click)="addToCart(item)"></i> </td>
+                <td> <i class="fas fa-plus-circle" style="cursor: pointer;" title="Add to Cart" (click)="addToCart(item)"></i> </td>
               </tr>
             </tbody>
 

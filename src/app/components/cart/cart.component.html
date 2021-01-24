@@ -9,7 +9,7 @@
       </div>
     </div>
   </div>
-  <div class="web-view" id="pdfsection">
+  <div class="web-view">
 
     <div class="innerContent shade">
 
@@ -32,8 +32,9 @@
                 <td>{{item?.authors }}</td>
                 <td> {{item?.qty}}</td>
                 <td>{{ getPrice(item) | number:'1.2-2'}}</td>
-                <td> <i class="fas fa-plus-circle" title="Add Quantity" (click)="addToCart(item, i)"></i>
-                    &nbsp;  <i class="fas fa-minus-circle" title="Remove Quantity" (click)="removeFromCart(item,i)"></i>
+                <td> <i style="cursor: pointer;" class="fas fa-plus-circle" title="Add Quantity" (click)="addToCart(item, i)"></i>
+                    &nbsp;  &nbsp;
+                    <i style="cursor: pointer;" class="fas fa-minus-circle" title="Remove Quantity" (click)="removeFromCart(item,i)"></i>
                 </td>
               </tr>
               <tr>
